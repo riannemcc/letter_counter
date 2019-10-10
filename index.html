@@ -5,19 +5,32 @@
       <link rel="stylesheet" type="text/css" href="public/style.css" />
   </head>
   <body>
-      <img id="logo" src="https://www.freeimageslive.co.uk/files/images008/letters_and_numbers.preview.jpg">
-      <div><h2 id="welcome">Let's count those letters!</h2></div>
-      <div>
-          <input id="textBox" placeholde="Enter name here">
-      </div>
-        
-    </section>
-    <script>
-        var nameInput = document.getElementById("textBox");
+      <div id="wrapper">
+          
+        <img id="logo" src="https://www.freeimageslive.co.uk/files/images008/letters_and_numbers.preview.jpg">
+        <div><h2 id="welcome">Let's count those letters!</h2></div>
+        <div>
+            <input id="textBox" placeholde="Enter name here">
+        </div> 
+        <p id="counter"></p>
+    </div>
+    <script type="text/javascript">
+        let nameInput = document.getElementById("textBox");
         nameInput.addEventListener('input', function(e) {
             console.log(e.target.value)
-        })
-        
+            let capturedInput = e.target.value
+            let counter = capturedInput.split("").reduce(function (allLetters, letter) {
+                if (letter in allLetters) {
+                    allLetters[letter]++;
+                }
+                else {
+                    allLetters[letter] = 1;
+                }
+                return allLetters;
+                
+            }, {});
+            console.log(counter)
+        })        
     </script>
     
   </body>
