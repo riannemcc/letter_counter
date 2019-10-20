@@ -13,6 +13,7 @@
     </div>
     <script type="text/javascript">
         let nameInput = document.getElementById("textBox");
+        let counterView = document.getElementById("counter");
         nameInput.addEventListener('input', function(e) {
             console.log(e.target.value)
             let capturedInput = e.target.value
@@ -27,6 +28,8 @@
                 
             }, {});
             console.log(counter)
+            const nameCounter = Object.keys(counter).map((key) => `${key}: ${counter[key]}`).join(", ")
+            counterView.innerText = nameCounter
         })        
     </script>
     
